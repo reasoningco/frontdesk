@@ -345,12 +345,19 @@
 .star-btn svg {
   width: 32px;
   height: 32px;
-  color: #d1d5db;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.star-btn:hover svg {
-  color: #111827;
+.star-btn svg.star-empty {
+  color: #d1d5db;
+}
+
+.star-btn svg.star-filled {
+  color: #fbbf24;
+}
+
+.star-btn:hover {
+  transform: scale(1.15);
 }
 
 .thank-you {

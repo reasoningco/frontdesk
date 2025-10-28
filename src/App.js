@@ -9,6 +9,7 @@ function App() {
   const [conversationLog, setConversationLog] = useState([]);
   const [showRating, setShowRating] = useState(false);
   const [selectedRating, setSelectedRating] = useState(0);
+  const [hoveredRating, setHoveredRating] = useState(0);
   const [widgetOpen, setWidgetOpen] = useState(false);
   const transcriptRef = useRef(null);
   
@@ -146,6 +147,7 @@ function App() {
     setWidgetOpen(false);
     setShowRating(false);
     setSelectedRating(0);
+    setHoveredRating(0);
     setConversationLog([]);
   }, []);
 
@@ -347,9 +349,11 @@ function App() {
                         <button
                           key={star}
                           className="star-btn"
+                          onMouseEnter={() => setHoveredRating(star)}
+                          onMouseLeave={() => setHoveredRating(0)}
                           onClick={() => handleRatingSubmit(star)}
                         >
-                          <svg viewBox="0 0 24 24" fill="currentColor">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className={star <= hoveredRating ? 'star-filled' : 'star-empty'}>
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                           </svg>
                         </button>
