@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useConversation } from '@elevenlabs/react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import '../../CallWidget.css';
 import './VoiceAssistant.css';
 
 const VoiceAssistant = () => {
   const [conversationLog, setConversationLog] = useState([]);
   const [showRating, setShowRating] = useState(false);
   const [selectedRating, setSelectedRating] = useState(0);
+  const [hoveredRating, setHoveredRating] = useState(0);
   const [widgetOpen, setWidgetOpen] = useState(false);
   const [agentNavigating, setAgentNavigating] = useState(false);
   const transcriptRef = useRef(null);
@@ -174,8 +176,10 @@ const VoiceAssistant = () => {
     setSelectedRating(rating);
     console.log('User rated voice conversation:', rating);
     setTimeout(() => {
+      setWidgetOpen(false);
       setShowRating(false);
       setSelectedRating(0);
+      setHoveredRating(0);
       setConversationLog([]);
     }, 1500);
   }, []);
@@ -184,6 +188,7 @@ const VoiceAssistant = () => {
     setWidgetOpen(false);
     setShowRating(false);
     setSelectedRating(0);
+    setHoveredRating(0);
     setConversationLog([]);
   }, []);
 
@@ -214,7 +219,7 @@ const VoiceAssistant = () => {
 
       {/* Voice Assistant Widget */}
       {widgetOpen && (
-        <div className="voice-widget">
+        <div className={`voice-widget ${showRating ? 'show-rating-blur' : ''}`}>
           {/* Left Panel - Call Info */}
           <div className="call-info-panel">
             <div className="call-profile">
@@ -299,9 +304,12 @@ const VoiceAssistant = () => {
                         <button
                           key={star}
                           className="star-btn"
+                          onMouseEnter={() => setHoveredRating(star)}
+                          onMouseLeave={() => setHoveredRating(0)}
+                          onTouchStart={() => setHoveredRating(star)}
                           onClick={() => handleRatingSubmit(star)}
                         >
-                          <svg viewBox="0 0 24 24" fill="currentColor">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className={star <= hoveredRating ? 'star-filled' : 'star-empty'}>
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                           </svg>
                         </button>
