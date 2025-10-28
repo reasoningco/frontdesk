@@ -456,6 +456,7 @@ function App() {
                           className="star-btn"
                           onMouseEnter={() => setHoveredRating(star)}
                           onMouseLeave={() => setHoveredRating(0)}
+                          onTouchStart={() => setHoveredRating(star)}
                           onClick={() => handleRatingSubmit(star)}
                         >
                           <svg viewBox="0 0 24 24" fill="currentColor" className={star <= hoveredRating ? 'star-filled' : 'star-empty'}>

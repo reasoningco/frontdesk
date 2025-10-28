@@ -734,7 +734,7 @@
     border-radius: 50%;
     background-image: url('/image.png');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     display: flex;
     align-items: center;
     justify-content: center;
