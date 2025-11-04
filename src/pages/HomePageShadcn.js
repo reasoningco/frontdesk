@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight, Star, MessageCircle, Globe } from 'lucide-react';
+import { ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
-import { siteInfo, aiFeatures, clientTestimonials } from '../data/siteData';
-import ContactForm from '../components/Forms/ContactForm';
+import { aiFeatures } from '../data/siteData';
 import VoiceAssistant from '../components/VoiceAssistant/VoiceAssistant';
 
 const HomePage = () => {
@@ -30,11 +29,11 @@ const HomePage = () => {
     <div className="min-h-screen bg-background">
       {/* Interactive Demo Instructions */}
       <section id="scenarios" className="py-20 bg-gradient-to-b from-primary/5 to-secondary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="w-full px-4">
+          <div className="w-full mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                🎯 This is a Live Interactive Demo
+                This is a Live Interactive Demo
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 This entire website is powered by AI Frontdesk, configured specifically for 
@@ -107,22 +106,13 @@ const HomePage = () => {
                 </CardContent>
               </Card>
             </div>
-            
-            <div className="bg-background/60 backdrop-blur-sm rounded-xl p-6 border-2 border-dashed border-primary/30">
-              <p className="text-lg font-semibold text-foreground mb-2">
-                👇 Scroll down to find the chat widget and start your conversation!
-              </p>
-              <p className="text-muted-foreground">
-                Built by <strong>The Reasoning Company</strong> • Configured for <strong>NeuroPsych Wellness Center</strong>
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Future Advancements - AI Capabilities */}
       <section className="py-20 bg-secondary/10">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4">
           <motion.div 
             className="text-center space-y-4 mb-16"
             initial={{ opacity: 0, y: 40 }}
@@ -131,9 +121,9 @@ const HomePage = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-5xl font-bold text-foreground">
-              🚀 Future Advancements
+              Future Advancements
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground w-full mx-auto">
               Explore the advanced AI capabilities we're building into our healthcare communication platform.
               Each feature represents cutting-edge technology designed to transform patient care.
             </p>
@@ -206,7 +196,7 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-background/80 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto border-2 border-dashed border-primary/30">
+            <div className="bg-background/80 backdrop-blur-sm rounded-xl p-6 w-full mx-auto border-2 border-dashed border-primary/30">
               <h3 className="text-lg font-semibold mb-3 flex items-center justify-center gap-2">
                 <MessageCircle className="h-5 w-5 text-primary" />
                 How to Use This Demo
@@ -234,101 +224,6 @@ const HomePage = () => {
               <MessageCircle className="ml-2 h-4 w-4" />
             </Button>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-secondary/10">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                  Ready to Transform Your Practice?
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Join healthcare providers like NeuroPsych Wellness Center who have revolutionized 
-                  their patient communication with AI Frontdesk. Book a personalized demo today.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Call: {siteInfo.phone}</div>
-                    <div className="text-muted-foreground">Sales & Demo Requests</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <MessageCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Email: {siteInfo.email}</div>
-                    <div className="text-muted-foreground">Technical Support</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Location:</div>
-                    <div className="text-muted-foreground">
-                      {siteInfo.address.city}, {siteInfo.address.state}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <Card className="p-8">
-              <CardHeader>
-                <CardTitle className="text-2xl">Request Demo</CardTitle>
-                <CardDescription>
-                  See AI Frontdesk in action with your specific use cases
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ContactForm />
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              What Healthcare Providers Say
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Real results from real practices
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {clientTestimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="p-6">
-                <CardContent className="space-y-4">
-                  <div className="flex space-x-1">
-                    {Array.from({ length: testimonial.rating }, (_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <blockquote className="text-muted-foreground italic">
-                    "{testimonial.text}"
-                  </blockquote>
-                  <div className="border-t pt-4">
-                    <div className="font-semibold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.title}</div>
-                    <Badge variant="secondary" className="mt-2 text-xs">
-                      {testimonial.metric}
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 

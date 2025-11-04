@@ -5,7 +5,6 @@ const ContactForm = ({ title = "New Inquiry", className = "" }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,7 +30,7 @@ const ContactForm = ({ title = "New Inquiry", className = "" }) => {
       
       console.log('Form submitted:', formData);
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
@@ -78,23 +77,6 @@ const ContactForm = ({ title = "New Inquiry", className = "" }) => {
               onChange={handleChange}
               required
               placeholder="Enter your email address"
-            />
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="phone">
-              Your Phone Number <span className="required">*</span>
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              placeholder="Enter your phone number"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
-# Vocal AI
+# AI Frontdesk
 
-A modern, intelligent voice-powered web application built with React and ElevenLabs.
+A modern, intelligent voice-powered web bot.
 
 ## Features
 
@@ -14,23 +14,24 @@ A modern, intelligent voice-powered web application built with React and ElevenL
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
-
 3. Configure your environment:
+
    - Copy `.env.example` to `.env`
    - Add your ElevenLabs Agent ID:
      ```
      REACT_APP_AGENT_ID=your_agent_id_here
      ```
-
 4. Start the development server:
+
    ```bash
    npm start
    ```
-
 5. Build for production:
+
    ```bash
    npm run build
    ```
@@ -55,4 +56,4 @@ A modern, intelligent voice-powered web application built with React and ElevenL
 
 ---
 
-**Powered by Vocal AI**
+**Powered by The Reasoning Company**
